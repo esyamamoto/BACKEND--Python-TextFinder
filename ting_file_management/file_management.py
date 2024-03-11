@@ -1,2 +1,21 @@
+import os
+import sys
+
+
 def txt_importer(path_file):
-    """Aqui irá sua implementação"""
+    # existe ou nao?
+    if not os.path.exists(path_file):
+        print(
+            f"Arquivo {path_file} não encontrado", file=sys.stderr
+        )  # stderr é um objeto que representa o fluxo de saída padrão para mensagens de erro.
+        return []
+
+    # Caso a extensão do arquivo seja diferente de .txt, deve ser exibida a mensagem
+    if not path_file.endswith("txt"):
+        print("Formato inválido", file=sys.stderr)
+        return []
+
+    # abre o arquivo e le
+    with open(path_file, "r") as file:
+        lines = file.read().splitlines()  # le as linhas e divide em uma lista
+        return lines
