@@ -1,4 +1,4 @@
-# Projeto Store Manager
+# Projeto TextFinder
 
 
 <details>
